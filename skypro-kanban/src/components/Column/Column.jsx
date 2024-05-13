@@ -1,22 +1,24 @@
 import Card from "../Card/Card";
 
-const Column = ({title}) => {
+const Column = ({title, cardList}) => {
   return (
     <div className="main__column">
       <div className="column__title">
         <p>{title}</p>
       </div>
       <div className="cards">
-      <Card 
-      category="Web Design"
-       title="Задизайнить карточку" 
-       date="21.02.2023"
-       />
-       <Card 
-      category="Research"
-       title="Изучить аудиторию" 
-       date="21.02.2023"
-       />
+        {cardList.map((card) => (
+          <Card 
+          key={card.id}
+          topic={card.topic}
+          title={card.title}
+          date={card.date}
+         
+      
+       /> 
+        )
+        )}
+     
       </div>
     </div>
   );
